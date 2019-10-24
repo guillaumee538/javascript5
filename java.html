@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <title>Exo5JS</title>
+</head>
+  <body>
+    <form>
+      <label for="firstNumber">nombre1 : </label><input type="text" id="firstNumber" name="firstNumber"/>
+      <label for="secondNumber">nombre2 : </label><input type="text" id="secondNumber" name="secondNumber"/>
+      <button  id="submit" name="submit">Valider</button>
+    </form>
+      <script>
+        document.getElementById('submit').addEventListener('click', multiplicationProduct);
+        function multiplicationProduct() {
+          let number1 = document.getElementById('firstNumber').value;
+          let number2 = document.getElementById('secondNumber').value;
+          //On doit vérifier ce qu'a saisi l'utilisateur via une condition
+          // && ==> opérateur logique "et"
+          if((isNaN(number1) == false) && (isNaN(number2) == false) && (Number.isInteger(parseFloat(number1)) == false) && (Number.isInteger(parseFloat(number2)) == false)){
+            // parseInt supprime la décimale et Number conserve le nombre tel qu'il est saisi.
+            // La saisie des nombres décimaux nécessite l'utilisation du point, la virgule faisant planter le calcul...
+            let result = parseInt(number1) * Number(number2);
+            alert(result);
+          }else{
+            alert('Veuillez saisir un nombre !');
+          }
+        }
+      </script>
+  </body>
+</html>
